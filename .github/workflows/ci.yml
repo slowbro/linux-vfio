@@ -12,9 +12,8 @@ jobs:
       - name: Cache
         uses: actions/cache@v2
         with:
-          path: |
-            ~/archlinux-linux
-        key: archlinux-linux-git
+          path: ~/archlinux-linux
+          key: archlinux-linux-git
 
       - name: GPG Keys
         run: |
