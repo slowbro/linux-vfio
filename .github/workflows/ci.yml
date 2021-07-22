@@ -9,6 +9,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/archlinux-linux
+
+      - name: GPG Keys
+        run: |
+          gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys ABAF11C65A2970B130ABE3C479BE3E4300411886 647F28654894E3BD457199BE38DBBDC86092693E A2FF3A36AAA56654109064AB19802F8B0D70FC30 C7E7849466FE2358343588377258734B41C31549
+
       - name: Makepkg
         uses: edlanglois/pkgbuild-action@v1
 
