@@ -1,0 +1,16 @@
+on: push
+
+name: Build Package
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: makepkg
+              uses: 2m/arch-pkgbuild-builder@v1.16
+              with:
+                target: 'pkgbuild'
+                pkgname: 'linux-vfio'
