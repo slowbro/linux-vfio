@@ -3,14 +3,16 @@ on: push
 name: Build Package
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-            - name: Build Package
-              uses: ouuan/pkgbuild-action@master
-              id: build-package
-              with:
-                path: linux-vfio
+      - name: Makepkg
+        uses: edlanglois/pkgbuild-action@v1
+
+      - name: Print Package Files
+        run: |
+          echo "Successfully created the following package archive"
+          echo "Package: ${{ steps.makepkg.outputs.pkgfile0 }}"
