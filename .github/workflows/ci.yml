@@ -9,8 +9,8 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
 
-            - name: makepkg
-              uses: 2m/arch-pkgbuild-builder@v1.16
+            - name: Build Package
+              uses: ouuan/pkgbuild-action@master
+              id: build-package
               with:
-                target: 'pkgbuild'
-                pkgname: 'linux-vfio'
+                path: linux-vfio
